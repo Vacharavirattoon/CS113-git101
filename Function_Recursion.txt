@@ -1,0 +1,52 @@
+Recursion ฟังก์ชัน
+
+#include <stdio.h>
+int addTen(int x)
+{
+    printf("addTen in main = %d\n", x);
+    x = x + 10;
+    return x;
+}
+int addTwenty();
+int x = 300;
+int main()
+{
+    int x = 10;
+    int y = addTen(x);
+    printf("addTen in main = %d\n", y);
+    printf("x in main = %d\n", x);
+    int z = addTwenty();
+    printf("addTwenty in main = %d\n", z);
+    printf("x in main = %d\n", x);
+}
+int addTwenty()
+{
+    printf("x in addTwenty = %d\n", x);
+    x = x + 20;
+    return x;
+}
+ผลลัพธ์ของโด้ดนี้ 
+addTen in main = 10 เกิดจากเรียกฟังก์ชัน main ไปฟังก์ชัน addTen แล้วก็print ค่า 10 กับ 10+10 ออกมา
+addTen in main = 20
+x in main = 10    แล้วก็ปริ้นค่า x ที่อยู่ใน main 
+x in addTwenty = 300 เป็นค่าที่ปริ้นจาก Gobal ที่ตั้งค่าไว
+addTwenty in main = 320 เป็นค่าที่อยู่ในGobal แล้วบวก 20 ที่อยู่ในฟังก์ชัน addTwenty
+x in main = 10 แล้วก็ปริ้นต่า x ใน main ออกมาที่ไม่เกี่ยวกับ Gobal
+
+factorial โดยการ Recursion 
+#include <stdio.h>
+long factorial(long n)
+{
+if (n == 0)
+return 1;
+else                          
+return n * factorial(n-1);     <--- ใช้ n Recursion ไปเรื่อยๆจนกว่า n == 0 โดยการ Recursion นี้เริ่มจากตัวแรกลดลงทีละหนึ่งแล้วก็คูณกันไปเรื่อยๆจนถึง0 
+}                                            แล้วส่งค่าผลลัพธ์ออกมาในฟังก์ชัน main
+int main()
+{ long n;
+n = 6;
+printf("%ld! = %ld\n", n, factorial(n));
+}
+
+ผลลัพธ์ของโด้ดนี้ 
+6! = 720

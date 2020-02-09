@@ -1,0 +1,67 @@
+if else else if 
+ตัวอย่างของการเขียน if else condition ในภาษา c
+if(expression)
+  statement1
+else
+  statement2
+
+if (n > 0)
+if (a > b)
+  z = a;
+else
+  z = b;
+
+if (expression1)
+  statement1;
+else if (expression2)
+   statement2;
+else if (expression3)
+   statement3;
+else if (expression4)
+   statement4;
+else
+    statement5;
+
+//if else ต้องมีวงเล็บหลัง condition เสมอไม่งั้นจะทำให้ผิด syntax ส่วนปีกกาไม่จำเป็นต้องมีก็ได้
+    
+การใช้ Do-while 
+do 
+   statement
+while (expression);
+
+ไม่จำเป็นต้องมีปีกกาตั้งแต่ do จนถึง while 
+
+การใช้ switch และ case 
+{
+    char A;
+    printf("Your grade : ");
+    A=getchar();
+    switch ( A )
+    { 
+           case 'a' :
+                    printf("Excellent!");
+                    break;
+           case 'b' :
+                    printf("Well!");
+                    break;
+           case 'c' :
+                    printf("Good!");
+                    break;
+           case 'd' :
+                    printf("So-so!");
+                    break;
+           case 'e' :
+                    printf("Badly!");
+                    break;
+           default : 
+                    printf("You fail");
+       }
+       getch();
+}
+ผลลัพธ์ของโด้ดนี้ 
+ใส่ a => แสดงผลลัพธ์ Excellent
+   b => แสดงผลลัพธ์ Well
+   c => แสดงผลลัพธ์ Good
+   d => แสดงผลลัพธ์ So-so!
+   f => แสดงผลลัพธ์ Badly
+   f => แสดงผลลัพธ์ You fail

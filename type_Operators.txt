@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{   char name[20];
+    printf("Enter name :");
+    fgets(name,20,stdin); <-- รับชื่อมา
+    printf("name = %s\n",name); <--- แสดงผลออกมา
+}
+แสดงผล 
+Enter name :toon
+name = toon  
+
+Function sizeof บอกขนาดของประเภทของข้อมูล เช่น int float char double เป็นต้น
+#include <stdio.h>
+int main()
+{ char c;
+int i;
+float f;
+double d;
+printf("size of c = %d\n", sizeof(c));
+printf("size of i = %d\n", sizeof(i));
+printf("size of f = %d\n", sizeof(f));
+printf("size of d = %d\n", sizeof(d));
+}
+ผลลัพธ์ของโด้ดนี้
+size of c = 1 <-- char ขนาด 1 byte
+size of i = 4 <-- int ขนาด 4 byte
+size of f = 4 <-- float ขนาด 4 byte
+size of d = 8 <-- double ขนาด 8 byte  
+ตัวอย่างของ char กับ int 
+#include <stdio.h>
+int main()
+{
+printf("%d\n", '0' + 1);
+printf("%c\n", '0' + 1);
+}
+ผลลัพธ์ของโด้ดนี้ 
+49 <--- เป็น int(จำนวนเต็มของ 49)
+1 <--- เป็น char ของ 1(ตัวที่ 49 ของ Ascii Table)
+
+
+#include <stdio.h>
+int main()
+{
+int x = 'A';
+printf("%d\n", x+2);
+printf("%c\n", x+2);
+printf("%d\n", sizeof("1234567890")); <--จำนวนตัวเลชของ 1-9,0 มีขนาด 11 ตัว
+}
+ผลลัพธ์ของโด้ดนี้ 
+67 <-- เป็น int (จำนวนตัวเลชของ 67)
+c <-- เป็น char ของ(ตัวที่ 67 ของ Ascii Table)
+11 <-- เป็น int ของฟังก์ชัน sizeof

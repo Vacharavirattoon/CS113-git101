@@ -1,0 +1,76 @@
+Pointer 
+
+#include <stdio.h>                                              
+//void addTen(int nmbers[], int n)
+void addTen(int *numbers, int n)                                                           
+{
+    for (int i = 0; i < n ; i++)
+    {
+        printf("numbers + %d addr = %p, %d\n", i , numbers + i, *(numbers + i));
+        *(numbers + i) += 10;
+    }
+}
+int addTwenty(int *n){
+    *n += 20;
+    return 1;
+}
+int main()
+{
+    int numbers[] = {5, 6, 7, 8, 9, 0};
+    int n = 6;
+    int *ptr = &n;
+    addTen(&numbers[0] , n);
+    for(int i = 0; i < 6; i++){
+        printf("number[%d] = %d\n", i , numbers[i]);
+    }
+    addTwenty(ptr);
+    printf("n = %d\n", n);
+}
+
+ผลลัพธ์ของโด้ดนี้
+ืีnumbers + 0 addr = 0x7ffc0471d910, 5 ทำในint main โดยการเรียกFunction addTen
+numbers + 1 addr = 0x7ffc0471d914, 6
+numbers + 2 addr = 0x7ffc0471d918, 7
+numbers + 3 addr = 0x7ffc0471d91c, 8
+numbers + 4 addr = 0x7ffc0471d920, 9 
+numbers + 5 addr = 0x7ffc0471d924, 0
+number[0] = 15  พอทำใน intaddTen เสร็จแล้วก็ทำในฟังก์ชัน int main แล้วก็ทำ int addTwenty
+number[1] = 16s
+number[2] = 17
+number[3] = 18
+number[4] = 19
+number[5] = 10
+n = 26    บวกค่า n = 6 ในFunction addTwenty ที่ได้จากนำค่าใน main ไปใส่ค่าในฟังก์ชันนี้
+ความสามารถของ Pointer สามารถเปลี่ยนค่าใน memory ได้
+(โดยเปลี่ยน address ได้ใน memory)
+
+การประกาศตัวแปร Pointer = ตัวชี้(เก็บค่า address ตัวชี้ต้วใดตัวหนึ่ง)
+int -> ชื่อ = &x <--ส่วนที่เรากำหนดค่าไว้แล้ว
+
+การ * deferenceing => ดูว่า array point เก็บค่าอะไร เอาอะไรที่ไว้แล้วจะวิ่งไป address นั้นแล้ว
+เพื่อที่จะทำตามคำสั่งของเรา
+& เราจะเปลี่ยนแปลงค่าที่เรา assign นั้นบรรทัด 10,11,12 => มันโดน merge ในบรรทัดที่ 9 
+แล้วเพราะฉะนั้นถ้าเปลี่ยนต้องเปลี่ยนค่าบรรทัดที่กำหนด
+
+เราไม่สามารถ &x = 50 ได้
+
+
+array
+#include <stdio.h>
+#define rowSize 2
+#define colSize 3
+
+int main() {
+    int A[rowSize][colSize] = {{1,2,3},{4,5,6}};
+    int i = 0 , j = 0;
+
+    for(i = 0; i < rowSize; i++){   <---- วน loop ที่ i-1 รอบ
+        for(j = 0;j < colSize; j++){ <---- วน loop ที่ j - 1 รอบ
+            printf("%d", A[i][j]);   printแถวของคอลัมม์ของ array ที่อยู่ใน set ของการประกาศตัวแปร rowSize
+        }
+        printf("\n");
+    }
+}
+ผลลัพธ์ของโด้ดนี้
+1 2 3
+4 5 6 

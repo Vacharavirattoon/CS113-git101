@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{   
+  int x = 100;
+    int a = 0144;
+    int b = 0x64;
+    printf("x = %d\n", x);
+    printf("reference of x = %lu\n", &x);
+    printf("reference of x = %p\n", &x);
+}
+ผลลัพธ์ของโด้ดนี้
+x = 100
+reference of x = 14073719513009
+reference of x = 0x7fffee85bcec
+
+#include <stdio.h>
+int main()
+{
+    int number[] = {1,2,3,4};
+    //char input[100];
+    //gets(input);
+    for (int *ptr=number; ptr <= &number[3]; ptr++)
+    {
+        printf("[%p] = %d\n",ptr, *ptr);
+    }
+    char input[100];
+    int count = 0;
+    char c;
+    while ((c=getchar() ) != '\n')
+    {
+      input[count] = c;
+      ++count;
+    }
+    printf("input[] = %s\n", input);
+    for (char *cPtr = input; *cPtr != '\0'; cPtr++)
+    {
+        printf("%c\n",*cPtr);
+    }
+}
+ผลลัพธ์ของโด้ดนี้ 
+[0x7ffd2c2c9250] = 1 เลชด้านหลังคือขนาดของ Pointer เช่น int =  4 ช่อง float = 4 ช่อง double = 8 ช่อง
+[0x7ffd2c2c9254] = 2 char = 1 ช่อง
+[0x7ffd2c2c9258] = 3
+[0x7ffd2c2c925c] = 4
+%p --> พิมพ์เลขของของที่อยู่ของ Address ของ Pointer   ซึ่งแตกต่างกัน
+%c --> พิมพ์ค่า Ascii number ออกมา
+
+ *ptr = 1000; //ค่าของ Adress ว่าเก็บค่าตรงไหน    
+    // *== dereferencing
+
+ฟังก์ชัน 2
+
+#include <stdio.h>
+float func_1(int param1, float param2)
+{
+float result;
+result = param1 * param2;          <---- กำหนดฟังก์ชันขึ้นมาเฉยๆไม่ได้ใช้งาน
+return result;
+}
+int main()                 
+{ int cnt;                 
+int sum=0;                    <---- บวกตัวเลขเฉยๆจนไปถึงน้อยกว่าเท่ากับ 10
+for (cnt=1; cnt <= 10; cnt++) {
+sum += cnt;
+printf("%2d) %d\n", cnt, sum);
+}
+}
+ผลลัพธ์ของโด้ดนี้ 
+1
+3 
+6
+10
+15
+21
+28
+36
+45
+55
