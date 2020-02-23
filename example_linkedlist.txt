@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct Node{
+    int data ;
+    struct Node* next ;
+    struct Node* pre ;
+}Node;
+
+//   3 -> 5 -> 8 -> 1
+
+Node* insertNode(Node* h, int dataWantToAdd){
+    Node* temp ;
+    temp = h ;
+    while(temp->next != NULL){
+        temp = temp->next ;
+    }
+    Node* n = malloc(sizeof(Node)) ;
+    n->data = dataWantToAdd ;
+    n->next = NULL ;
+    n->pre = temp ;
+    temp->next = n ;
+
+    return h ;
+}
+
+void printList(Node* h){
+    Node* temp ;
+    temp = h ;
+    while(temp != NULL){
+        printf("%d ->", temp->data) ;
+        temp = temp->next ;
+    }
+}
+
+
+int main(){
+
+    Node* head ;
+    head->data = 3 ;
+    head->next = NULL ;
+    head->pre = NULL ;
+
+    head = insertNode(head, 5) ;
+    head = insertNode(head, 8) ;
+    head = insertNode(head, 1) ;
+
+    printList(head) ;
+
+//    int[20]   == malloc(sizeof(int) * 20) 
+
+
+    return 0 ;
+}
