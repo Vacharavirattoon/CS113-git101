@@ -1,0 +1,114 @@
+สรุปเนื้อหา LAB
+การสร้างและแยก branch
+
+1.การ clone git  คือการใช้คำสัง่ git clone แล้วก็ git url (อยู่ใน git hub)
+
+2.การสร้่าง branch git Branch (name) อย่างเช่น git branch feature 
+และการตรวจสอบ Branch ใช้คำสั้ง git branch
+
+3.การเปลี่ยนไปที่ branch ที่เราสร้างก็คือ git checkout feature 
+ และ การตรวจสอบ Branch โดยใช้คำสั่ง git branch 
+การ Merge Branch 
+6.ถ้าเราจะเพิ่ม File ไปที่ feature1 หรือ master
+git checkout locationFilegit
+
+การเพิ่มไฟล์ 
+git status <<--- check สถานะของgit
+git add locationFilegit
+git commit -m "Add Filename in branch locationfilegit"
+7.ใช้ git log adog ดู checkpoint ทั้งหมด git log --all --decorate --oneline --graph
+
+การ push ขึ้น git hub  ใช้ git log adog ดู checkpoint ทั้งหมด
+git checkout locationfilegit
+git log --all --decorate --oneline --graph
+git push origin locationFilegit
+git log --all --decorate --oneline --graph
+
+
+
+สรุปเนื้อหาบรรยาย
+
+การกำหนด struct
+
+struct employee {    <--- ชื่อ struct
+    char firstname[20];
+    char lastname[20];       <--- members ของ struct
+    unsigned int age;
+    char gender;
+    double hourlySalary;
+};
+
+struct card{
+    char *face;   <<--- card กับ human และ card อยู่คนละ struct เพราะฉะนั้น face ตัวแรกและตัวสอง ไม่เท่ากัน
+    char *suit;
+};
+
+struct human{
+    char *face;
+    char *body;
+}
+
+#include <stdio.h>
+
+struct fraction{
+    int numbertor;
+    int denominator; <--- default ค่าเป็น 0 แล้วไม่สามารถ assign ค่า 1 ให้ได้ต้องให้ใส่ใน struct fraction eight 1
+};
+int main(){
+    struct fraction half = {1,2};
+    struct fraction eight = {8};
+
+    printf("%d/%5d\n",half.numberator,half.denominator);
+    printf("%d/%5d\n",eight.numberator,eight.denominator);
+}
+
+ผลลัพธ์ของโปรแกรมนี้ 
+1/   2
+8/   0 <<-- default
+
+#include <stdio.h>
+
+typedef struct{
+    int width;
+    int length;
+    int height;
+}Box;
+
+typedef struct{
+    int radius;
+}circle;
+int main(){
+    Box mybox;
+    circle c;
+
+    mybox.width = 10;
+    mybox.length = 30;
+    mybox.height = 10;
+    c.radius = 10;
+
+    printf("Box (%d, %d, %d)\n",mybox.width,mybox.length,mybox.height);
+    printf("Circle (%d)\n",c.circle);
+}
+ผลลัพธ์ของโปรแกรมนี้ 
+ Box 10 30 10
+ Circle 10
+
+Sprintf(p -> name, "part %d",i); p -> name(sting) printf(ทั่วไปเอาไป printf ไปอยู่หน้า string index แรก)
+#include <stdio.h>
+#include <string.h>
+struct book{
+    float price;
+    char name[50];
+};
+int main(){
+    struct book a, b;
+    b.price = 19.99;
+    strcpy(b.name,"C book"); copystring           ( a = {price = 19.99, name = c} )
+    a = b;                                        ( b = {price = 19.99, name = unix})
+    strcpy(b.name,"Unix book");
+    puts(a.name);
+    puts(b.name);  <--- print string
+}
+ผลลัพธ์ของโปรแกรมนี้ 
+C book
+Unix book
